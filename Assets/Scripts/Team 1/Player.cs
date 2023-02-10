@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     public GameObject play_again_panel;
     public Transform circle;
     public Transform square;
-   
+
 
     public bool intiater;
     public Text TextBox1;
@@ -42,14 +42,10 @@ public class Player : MonoBehaviour
     public HashSet<string> hs = new HashSet<string>();
 
 
-    public int flagd=0;
-    public int flagw=0;
-    public int flagt=0;
-    public bool win_flag = false;
 
     // hash set
-    public HashSet<string> hs = new HashSet<string>();
-    
+
+
 
     // Start is called before the first frame update
     increment_death d;
@@ -63,7 +59,7 @@ public class Player : MonoBehaviour
         if (pause_menu.GameIsPaused)
         {
             pause_menu.GameIsPaused = false;
-        }   
+        }
 
 
         // create a object of the class and call the function
@@ -181,9 +177,10 @@ public class Player : MonoBehaviour
             PlayerDied(System.DateTime.Now.Ticks.ToString(), d.death.ToString(), d.death_by_saw.ToString(), d.death_by_spikes.ToString(), d.death_by_enemy.ToString(), d.death_by_spear.ToString(), d.death_by_explosive.ToString(), d.death_by_crusher.ToString(), d.time_to_complete_level.ToString(), d.death_by_falling.ToString(), d.death_by_puzzle.ToString());
 
         }
-        else{
+        else
+        {
             // print("not sending data");
-            Debug.Log("not sending data");
+            // Debug.Log("not sending data");
             // play_again_panel.SetActive(false);
         }
 
@@ -321,14 +318,14 @@ public class Player : MonoBehaviour
 
         }
 
-            if (win_flag){
-                collision.gameObject.SetActive(false);
-            }
-        
+        if (win_flag)
+        {
+            collision.gameObject.SetActive(false);
         }
 
-
     }
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
@@ -363,21 +360,20 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Gate1"))
         {
             // below is the code to move the player to the next x,y position. set the x,y to the position you want the player to move to.
-            playerTransform.position = new Vector2(61.77f, 17f);
-
-        if (collision.gameObject.CompareTag("Gate1"))
-        {
-            // below is the code to move the player to the next x,y position. set the x,y to the position you want the player to move to.
-            playerTransform.position = new Vector2(60f, -2.6f);
-
+            playerTransform.position = new Vector2(60f, 17f);
         }
+        // if (collision.gameObject.CompareTag("Gate1"))
+        // {
+        //     // below is the code to move the player to the next x,y position. set the x,y to the position you want the player to move to.
+        //     playerTransform.position = new Vector2(60f, -2.6f);
+
+        // }
         if (collision.gameObject.CompareTag("Gate2"))
         {
             // below is the code to move the player to the next x,y position. set the x,y to the position you want the player to move to.
 
-            playerTransform.position = new Vector2(40.4f, -5.83f);
 
-            playerTransform.position = new Vector2(22.99046f, -2.6f);
+            playerTransform.position = new Vector2(41f, -5.619558f);
 
         }
         if (collision.gameObject.CompareTag("Points"))
@@ -390,7 +386,7 @@ public class Player : MonoBehaviour
         {
             d.IncreaseDeath();
             d.IncreaseDeathByFalling();
-
+            death_option();
             reset_player_position();
         }
 
@@ -501,15 +497,15 @@ public class Player : MonoBehaviour
             TextBox3.enabled = false;
         }
 
-        if (collision.gameObject.CompareTag("Finish"))
-        {
+        // if (collision.gameObject.CompareTag("Finish"))
+        // {
 
-            death_option();
-            reset_player_position();
-        }
+        //     death_option();
+        //     reset_player_position();
+        // }
 
-       
-		// if (collision.gameObject.CompareTag("F"))
+
+        // if (collision.gameObject.CompareTag("F"))
         // {
         //     Destroy(collision.gameObject);
         //     // check if element not in set
@@ -525,7 +521,7 @@ public class Player : MonoBehaviour
 
         //     // Alphabets_Swaner.Alphabets[GameObject.Find("F").GetComponent<Alphabets_Swaner>().index()].SetActive(false);
         // }
-		// if (collision.gameObject.CompareTag("I"))
+        // if (collision.gameObject.CompareTag("I"))
         // {
         //     if (!hs.Contains("I")){
         //         hs.Add("I");
@@ -538,7 +534,7 @@ public class Player : MonoBehaviour
         //     SpriteRenderer sr = IL[0].GetComponent<SpriteRenderer>();
         //     sr.enabled = true;
         // }
-		// if (collision.gameObject.CompareTag("R"))
+        // if (collision.gameObject.CompareTag("R"))
         // {
         //     if (!hs.Contains("R")){
         //         hs.Add("R");
@@ -551,7 +547,7 @@ public class Player : MonoBehaviour
         //     SpriteRenderer sr = RL[0].GetComponent<SpriteRenderer>();
         //     sr.enabled = true;
         // }
-		// if (collision.gameObject.CompareTag("E"))
+        // if (collision.gameObject.CompareTag("E"))
         // {
         //     if (!hs.Contains("E")){
         //         hs.Add("E");
@@ -564,7 +560,7 @@ public class Player : MonoBehaviour
         //     SpriteRenderer sr = EL[0].GetComponent<SpriteRenderer>();
         //     sr.enabled = true;
         // }
-		// if (collision.gameObject.CompareTag("A"))
+        // if (collision.gameObject.CompareTag("A"))
         // {
         //     Destroy(collision.gameObject);
         //     Alphabets_Swaner.ind = 0;
@@ -578,7 +574,7 @@ public class Player : MonoBehaviour
         //     attemps++;
         //     Alphabets_Swaner.flag = true;
         // }
-		// if (collision.gameObject.CompareTag("detect"))
+        // if (collision.gameObject.CompareTag("detect"))
         // {
         //     // intiater = true;
         //     if(flagd==0){
@@ -607,7 +603,8 @@ public class Player : MonoBehaviour
         //     TextBox3.enabled = false;
         // }
 
-         if (collision.gameObject.CompareTag("Finish")){
+        if (collision.gameObject.CompareTag("Finish"))
+        {
 
             d.IncreaseDeath();
             d.IncreaseTimeToCompleteLevel((int)Time.time - time_start);
@@ -620,9 +617,6 @@ public class Player : MonoBehaviour
 
     private void reset_player_position()
     {
-        textbox_disabler();
-
-    private void reset_player_position(){
         // textbox_disabler();
 
         playerTransform.position = new Vector2(-12f, -8.6f);
@@ -645,12 +639,13 @@ public class Player : MonoBehaviour
     //     TextBox3.enabled = false;
     // }
 
-    private void death_option(){
+    private void death_option()
+    {
         Time.timeScale = 0;
         // GameObject panelObject = GameObject.Find("Panel");
         // Panel panel = panelObject.GetComponent<Panel>();
         play_again_panel.SetActive(true);
-        
+
     }
 
 
@@ -680,9 +675,9 @@ public class Player : MonoBehaviour
     // }
 
 
-    public void PlayerDied(string session, string attempts, string saw, string spike, string enemy, string spear, string explosives, string crusher, string time_to_complete_level, string falling, string death_by_puzzle)
+    // public void PlayerDied(string session, string attempts, string saw, string spike, string enemy, string spear, string explosives, string crusher, string time_to_complete_level, string falling, string death_by_puzzle)
 
-    public void PlayerDied(string session, string attempts, string saw, string spike, string enemy, string spear, string explosives, string crusher, string time_to_complete_level , string falling, string death_by_puzzle)
+    public void PlayerDied(string session, string attempts, string saw, string spike, string enemy, string spear, string explosives, string crusher, string time_to_complete_level, string falling, string death_by_puzzle)
 
     {
         _sessionID = session;
@@ -701,13 +696,14 @@ public class Player : MonoBehaviour
         StartCoroutine(Post());
     }
 
+    // public void number_of_attempt()
+    // {
+
+    //     StartCoroutine(Post());
+    // }
+
     public void number_of_attempt()
     {
-
-        StartCoroutine(Post());
-    }
-
-    public void number_of_attempt(){
 
         _number_of_attempts += 1;
         Debug.Log(_number_of_attempts);
@@ -717,14 +713,14 @@ public class Player : MonoBehaviour
     {
 
 
+        // WWWForm form = new WWWForm();
+        // form.AddField("entry.1873251736", _sessionID);
+        // form.AddField("entry.184508093", _number_of_attempts);
+
+
         WWWForm form = new WWWForm();
         form.AddField("entry.1873251736", _sessionID);
         form.AddField("entry.184508093", _number_of_attempts);
-
-        
-       WWWForm form = new WWWForm();
-        form.AddField("entry.1873251736", _sessionID); 
-        form.AddField("entry.184508093", _number_of_attempts); 
 
         form.AddField("entry.1811764899", _saw);
         form.AddField("entry.1524214175", _spike);

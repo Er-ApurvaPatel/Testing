@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class FallingPlatform : MonoBehaviour
+public class FallingPlatform1 : MonoBehaviour
 {
     private float fallDelay = 1f;
     private float destroyDelay = 2f;

@@ -36,21 +36,14 @@ TagManager:
   - detect
   - Invisible_wall
   - invisible
-
   - Letter
-  - Push_button
-  - blokage
+  - rolling_circle
   - Set_Flags
   - falling1
+  - Push_button
+  - blokage
   - falling2
   - falling3
-
-  - play_again_text
-  - play_again_panel
-  - play_again_button
-  - circle
-  - rolling_circle
-
   layers:
   - Default
   - TransparentFX
@@ -58,12 +51,8 @@ TagManager:
   - 
   - Water
   - UI
-  - water
-
   - 
-
-  - button
-
+  - 
   - 
   - 
   - 
@@ -90,11 +79,8 @@ TagManager:
   - 
   m_SortingLayers:
   - name: background
-    uniqueID: 613450765
+    uniqueID: 4105842253
     locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: water
-    uniqueID: 1786541053
     locked: 0
