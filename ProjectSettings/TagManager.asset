@@ -36,6 +36,7 @@ TagManager:
   - detect
   - Invisible_wall
   - invisible
+
   - Letter
   - Push_button
   - blokage
@@ -43,6 +44,13 @@ TagManager:
   - falling1
   - falling2
   - falling3
+
+  - play_again_text
+  - play_again_panel
+  - play_again_button
+  - circle
+  - rolling_circle
+
   layers:
   - Default
   - TransparentFX
@@ -51,7 +59,11 @@ TagManager:
   - Water
   - UI
   - water
+
   - 
+
+  - button
+
   - 
   - 
   - 
